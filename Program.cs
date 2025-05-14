@@ -1,20 +1,30 @@
-﻿using dotenv.net;
-
-
-class Program
+﻿class Program
 {
-    static void Main(string[] args)
+    static async Task Main()
     {
-        DotEnv.Load();
 
-        string apiKey = Environment.GetEnvironmentVariable("OPENAI_API_KEY");
+        Console.WriteLine("Bienvenue dans Spellcaster CLI !");
+        Console.WriteLine("Que souhaitez-vous faire ?");
+        Console.WriteLine("1. Corriger un texte en français");
+        Console.WriteLine("2. Traduire un texte en français vers anglais");
+        Console.WriteLine("3. Générer un fichier HTML");
+        Console.WriteLine("4. Quitter");
 
-        if (string.IsNullOrEmpty(apiKey))
+        int userChoice = int.Parse(Console.ReadLine());
+
+        switch (userChoice)
         {
-            Console.WriteLine("❌ Erreur : clé API manquante. Vérifie ton fichier .env.");
-            return;
+            case 1:
+                await Correction.TextCorrection();
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                return;
+            default:
+                return;
         }
-
-        Console.WriteLine($"Clé API : {apiKey}");
     }
 }
