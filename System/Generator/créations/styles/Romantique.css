@@ -1,0 +1,229 @@
+        /* Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Tangerine:wght@400;700&display=swap');
+        
+        /* Base styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Cormorant Garamond', serif;
+            background: linear-gradient(135deg, #f5e6e0 0%, #e0e6f5 100%);
+            color: #454145;
+            line-height: 1.8;
+            padding: 0;
+            margin: 0;
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+        
+        /* Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+        }
+        
+        /* Header styling */
+        h1 {
+            font-family: 'Tangerine', cursive;
+            font-size: 5rem;
+            text-align: center;
+            color: #8e6c88;
+            margin-bottom: 2rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: titleGlow 3s infinite alternate;
+        }
+        
+        h2 {
+            font-family: 'Tangerine', cursive;
+            font-size: 3rem;
+            color: #6c848e;
+            margin: 2rem 0 1rem;
+            text-align: center;
+            position: relative;
+            animation: subtitleFade 2s ease-in-out;
+        }
+        
+        /* Text styling */
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+            position: relative;
+            animation: textFadeIn 1.5s ease-in-out;
+            padding: 0 1rem;
+            text-indent: 2rem;
+        }
+        
+        /* Decorative elements */
+        .divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #8e6c88, #6c848e, transparent);
+            margin: 2rem auto;
+            width: 70%;
+            animation: dividerGlow 4s infinite alternate;
+        }
+        
+        .ornament {
+            text-align: center;
+            font-size: 2rem;
+            color: #8e6c88;
+            margin: 1rem 0;
+            animation: ornamentRotate 6s infinite alternate;
+        }
+        
+        /* Background elements */
+        .floating-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: rgba(142, 108, 136, 0.2);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+        }
+        
+        /* First letter styling */
+        p:first-of-type::first-letter {
+            font-size: 3rem;
+            font-family: 'Tangerine', cursive;
+            color: #8e6c88;
+            float: left;
+            line-height: 0.8;
+            margin-right: 0.5rem;
+            animation: firstLetterGlow 3s infinite alternate;
+        }
+        
+        /* Animation keyframes */
+        @keyframes titleGlow {
+            0% {
+                text-shadow: 0 0 5px rgba(142, 108, 136, 0.1);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(142, 108, 136, 0.5), 0 0 20px rgba(108, 132, 142, 0.3);
+            }
+        }
+        
+        @keyframes subtitleFade {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes textFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes dividerGlow {
+            0% {
+                box-shadow: 0 0 5px rgba(142, 108, 136, 0.2);
+            }
+            100% {
+                box-shadow: 0 0 15px rgba(142, 108, 136, 0.6);
+            }
+        }
+        
+        @keyframes ornamentRotate {
+            0% {
+                transform: rotate(-5deg);
+            }
+            100% {
+                transform: rotate(5deg);
+            }
+        }
+        
+        @keyframes firstLetterGlow {
+            0% {
+                text-shadow: 0 0 2px rgba(142, 108, 136, 0.2);
+            }
+            100% {
+                text-shadow: 0 0 8px rgba(142, 108, 136, 0.6);
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-700px) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Hover effects */
+        h1:hover {
+            animation: titleGlow 1s infinite alternate;
+        }
+        
+        h2:hover {
+            color: #8e6c88;
+            transition: color 0.5s ease;
+        }
+        
+        /* Media queries */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 4rem;
+            }
+            
+            h2 {
+                font-size: 2.5rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1rem;
+                padding: 0;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }

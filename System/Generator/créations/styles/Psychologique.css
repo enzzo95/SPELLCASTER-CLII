@@ -1,0 +1,124 @@
+/* style/Psychologique.css */
+
+body {
+    background: linear-gradient(120deg, #2c3e50, #4ca1af);
+    font-family: 'Georgia', serif;
+    color: #eee;
+    margin: 0;
+    padding: 2rem;
+    animation: backgroundShift 15s ease-in-out infinite alternate;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background-color: rgba(44, 62, 80, 0.85);
+    padding: 2rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(76, 161, 175, 0.5);
+    animation: containerPulse 8s ease-in-out infinite;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Palatino Linotype', 'Book Antiqua', serif;
+    text-shadow: 0 0 8px #78a7b9;
+    margin-bottom: 1rem;
+    animation: textGlow 4s ease-in-out infinite alternate;
+}
+
+h1 {
+    font-size: 3rem;
+    letter-spacing: 2px;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+h4 {
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    font-style: italic;
+    color: #b0c4de;
+}
+
+p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    text-align: justify;
+    text-indent: 1.5rem;
+    animation: textFadeIn 6s ease forwards;
+}
+
+blockquote {
+    border-left: 4px solid #78a7b9;
+    margin: 1.5rem 2rem;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #aad4e6;
+    background: rgba(120, 167, 185, 0.15);
+    box-shadow: 0 0 8px #78a7b9;
+    animation: blockquotePulse 6s ease-in-out infinite alternate;
+}
+
+/* Animations */
+
+@keyframes backgroundShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes containerPulse {
+    0%, 100% {
+        box-shadow: 0 0 30px rgba(76, 161, 175, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 50px rgba(120, 167, 185, 0.8);
+    }
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 8px #78a7b9;
+        color: #cce7f0;
+    }
+    100% {
+        text-shadow: 0 0 15px #aed6f1;
+        color: #eaf6fc;
+    }
+}
+
+@keyframes textFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes blockquotePulse {
+    0%, 100% {
+        background: rgba(120, 167, 185, 0.15);
+        box-shadow: 0 0 8px #78a7b9;
+        color: #aad4e6;
+    }
+    50% {
+        background: rgba(120, 167, 185, 0.3);
+        box-shadow: 0 0 15px #9bc3d4;
+        color: #d0e6f6;
+    }
+}

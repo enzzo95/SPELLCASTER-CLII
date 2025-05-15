@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@500&family=Inconsolata:wght@300&display=swap');
+ 
+/* 🌌 Espace profond */
+body {
+    margin: 0;
+    padding: 5vh 8vw;
+    background-color: #000;
+    background-image: url('https://images.unsplash.com/photo-1604079628049-9431b1c5f1c6?ixid=M3w5ZHN8MHx8fGFsbHwxfHx8fHx8fHwxNjgwMTk1NzA4&ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #d6e1f5;
+    font-family: 'Inconsolata', monospace;
+    letter-spacing: 0.5px;
+    line-height: 1.9;
+}
+ 
+/* 🪐 Contenant du texte */
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(0, 0, 0, 0.65);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: 0 0 120px rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(4px);
+}
+ 
+/* 🌑 Titre principal */
+h1 {
+    font-family: 'Unbounded', sans-serif;
+    font-size: 3.5rem;
+    color: #91a7ff;
+    text-align: center;
+    text-shadow: 0 0 20px #4e6bff, 0 0 40px #2c45a5;
+    animation: pulseShadow 4s ease-in-out infinite;
+}
+ 
+/* 🛰️ Sous-titres */
+h2 {
+    font-size: 2rem;
+    color: #cfd8ff;
+    border-left: 3px solid #7289da;
+    padding-left: 1rem;
+    margin-top: 3rem;
+}
+ 
+/* 💫 Sections */
+h3 {
+    font-size: 1.3rem;
+    color: #aabbee;
+    font-style: italic;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+ 
+/* 🌘 Paragraphes denses */
+p {
+    font-size: 1.1rem;
+    background-color: rgba(255, 255, 255, 0.02);
+    padding: 1.4rem;
+    border-left: 4px solid #5a7aff;
+    border-radius: 0 10px 10px 0;
+    margin-bottom: 2rem;
+    color: #e0e8f5;
+    transition: background 0.4s ease;
+}
+ 
+p:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+ 
+/* 🌌 Ombre vibrante */
+@keyframes pulseShadow {
+    0% {
+        text-shadow: 0 0 20px #4e6bff, 0 0 40px #1a237e;
+    }
+    100% {
+        text-shadow: 0 0 60px #94b4ff, 0 0 100px #5e77c7;
+    }
+}
+ 
+/* 🛸 Lien cosmique */
+a {
+    color: #99cfff;
+    text-decoration: none;
+    border-bottom: 1px dotted #99cfff;
+    transition: all 0.3s ease;
+}
+ 
+a:hover {
+    color: #c6e2ff;
+    border-bottom: 1px solid #c6e2ff;
+}
+ 
+/* 🌟 Citation flottante */
+blockquote {
+    font-style: italic;
+    color: #c5d6f7;
+    border-left: 4px solid #6b89ff;
+    background-color: rgba(255, 255, 255, 0.03);
+    padding: 1rem 1.5rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+}

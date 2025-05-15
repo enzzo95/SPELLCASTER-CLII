@@ -10,7 +10,7 @@ class HTML {
                 <meta charset='UTF-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
                 <title>{fileName}</title>
-                <link rel='stylesheet' href='/style/{genre}.css'>
+                <link rel='stylesheet' href='styles/{genre}.css'>
             </head>
             <body>
                 <div class='container'>
@@ -23,6 +23,6 @@ class HTML {
             </body>
             </html>
             ";
-            File.WriteAllText($"System/Generator/{fileName}.html", html);
+            File.WriteAllText($"System/Generator/créations/{fileName}.html", html);
     }
 }

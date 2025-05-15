@@ -1,0 +1,93 @@
+/* 🎴 ISEKAI CSS – Un portail entre deux réalités */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Quicksand&display=swap');
+ 
+/* 🌀 Univers global */
+body {
+    margin: 0;
+    padding: 2rem;
+    background: linear-gradient(160deg, #0f0c29, #302b63, #24243e);
+    background-attachment: fixed;
+    color: #f4f4f9;
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+ 
+/* 🌟 Renaissance – Titre principal */
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    color: #facc15; /* lumière divine */
+    text-align: center;
+    text-shadow: 0 0 10px #fff700, 0 0 30px #facc15;
+    margin-bottom: 1rem;
+    animation: glowText 2s ease-in-out infinite alternate;
+}
+ 
+/* ⚔️ Courage et Quête – Sous-titres */
+h2 {
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    color: #8be9fd;
+    border-left: 5px solid #00bcd4;
+    padding-left: 1rem;
+    margin-top: 2rem;
+}
+ 
+/* 📖 Étapes d’évolution – Chapitres */
+h3 {
+    font-size: 1.3rem;
+    color: #ff79c6;
+    font-style: italic;
+    margin-top: 1.2rem;
+}
+ 
+/* 💬 Paragraphe narratif */
+p {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 1.2rem;
+    border-left: 4px solid #a78bfa;
+    border-radius: 0 10px 10px 0;
+    color: #e0e0e0;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+ 
+p:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+ 
+/* 🎇 Animation magique */
+@keyframes glowText {
+    from {
+        text-shadow: 0 0 10px #facc15, 0 0 30px #f59e0b;
+    }
+    to {
+        text-shadow: 0 0 20px #fde68a, 0 0 40px #facc15;
+    }
+}
+ 
+/* ✨ Effet de page enchantée */
+.container {
+    max-width: 800px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 15px;
+    padding: 2rem;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+}
+ 
+/* 🕊️ Liens : vers la liberté */
+a {
+    color: #93c5fd;
+    text-decoration: none;
+    border-bottom: 1px dashed #93c5fd;
+    transition: all 0.3s ease;
+}
+a:hover {
+    color: #60a5fa;
+    border-bottom-style: solid;
+}
+ 

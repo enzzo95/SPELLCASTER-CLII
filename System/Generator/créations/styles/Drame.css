@@ -1,0 +1,184 @@
+/* Dramatic Theme CSS for "Le Chant des Âmes Errantes" */
+
+/* Base styling with dramatic dark background and elegant typography */
+body {
+    background: linear-gradient(to bottom, #0f0f1a 0%, #1a1a2e 100%);
+    color: #e0e0e0;
+    font-family: 'Cormorant Garamond', 'Goudy Old Style', serif;
+    line-height: 1.8;
+    margin: 0;
+    padding: 0;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+/* Container with dramatic border */
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+    position: relative;
+    overflow: hidden;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.6) 100%);
+    pointer-events: none;
+}
+
+/* Main title with dramatic styling */
+h1 {
+    font-size: 3rem;
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+    font-weight: 300;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 20px;
+}
+
+/* Section titles */
+h2 {
+    font-size: 1.8rem;
+    color: #c79f5a;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-style: italic;
+    font-weight: 400;
+    text-shadow: 0 0 5px rgba(199, 159, 90, 0.3);
+}
+
+/* Paragraph styling with first-letter effect */
+p {
+    margin-bottom: 24px;
+    text-align: justify;
+    font-size: 1.1rem;
+    position: relative;
+}
+
+p:first-of-type::first-letter {
+    font-size: 3.5rem;
+    float: left;
+    line-height: 0.8;
+    margin-right: 12px;
+    color: #d4af37;
+    font-family: 'Playfair Display', serif;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* Special mentions of the characters zz and aa */
+.character {
+    color: #a2c0d9;
+    font-style: italic;
+    text-shadow: 0 0 8px rgba(162, 192, 217, 0.4);
+    transition: color 0.5s ease;
+}
+
+.character:hover {
+    color: #d6e7f7;
+}
+
+/* Animated mist effect at the bottom */
+.mist {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to top, rgba(15, 15, 26, 0.9) 0%, transparent 100%);
+    z-index: 10;
+    pointer-events: none;
+    animation: mistFloat 15s infinite alternate ease-in-out;
+}
+
+@keyframes mistFloat {
+    0% {
+        opacity: 0.7;
+        height: 120px;
+    }
+    100% {
+        opacity: 0.9;
+        height: 180px;
+    }
+}
+
+/* Subtle animated background stars */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" width="1000" height="1000"><circle cx="500" cy="500" r="1" fill="white" opacity="0.8"/></svg>') repeat;
+    background-size: 100px 100px;
+    animation: twinkle 8s infinite alternate ease-in-out;
+    z-index: -1;
+    opacity: 0.2;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.1; }
+    50% { opacity: 0.3; }
+    100% { opacity: 0.2; }
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    color: rgba(224, 224, 224, 0.5);
+    margin-top: 60px;
+}
+
+/* Dramatic text selection */
+::selection {
+    background: rgba(212, 175, 55, 0.3);
+    color: #ffffff;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
+
+/* Fade-in animation for content loading */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    animation: fadeIn 1.5s ease-out forwards;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    p:first-of-type::first-letter {
+        font-size: 2.5rem;
+    }
+}

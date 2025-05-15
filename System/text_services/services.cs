@@ -55,16 +55,16 @@ public class Services
 
         Dictionary<int, string> genres = new Dictionary<int, string>
         {
-            {1, "fantasy"},
-            {2, "horreur"},
-            {3, "science-fiction"},
-            {4, "aventure"},
-            {5, "historique"},
-            {6, "mystique"},
-            {7, "romantique"},
-            {8, "policier"},
-            {9, "thriller"},
-            {10, "comédie"}
+            {1,"Shonen"},
+            {2,"Romantique"},
+            {3,"Fantasy"},
+            {4,"Épopées"},
+            {5,"Isekai"},
+            {6,"Fable"},
+            {7,"Drame"},
+            {8,"Mystique"},
+            {9,"Policier"},
+            {10,"Psychologique"}
         };
 
         foreach (var genr in genres)
@@ -81,7 +81,6 @@ public class Services
             
         return new List<string> {genres[genreChoice], fileName, await openAi.SendRequest(prompt)};
     }
-
 
     public bool continueProgram()
     {

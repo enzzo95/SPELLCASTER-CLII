@@ -1,0 +1,268 @@
+/* Style CSS Shonen lumineux - Thème de l'amitié et de la paix */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&family=Rubik:wght@400;600;700&display=swap');
+ 
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    color: #2e3b4e;
+    font-family: 'Nunito', sans-serif;
+    line-height: 1.6;
+}
+ 
+.container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 5px 20px rgba(76, 175, 255, 0.3),
+                0 15px 40px rgba(255, 198, 94, 0.15);
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+ 
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #74b9ff, #ffeaa7, #ff7675, #74b9ff);
+    background-size: 300% 100%;
+    animation: gradientBorder 8s ease infinite;
+    z-index: 10;
+}
+ 
+@keyframes gradientBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+ 
+.container::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="%23ffeca0" stroke-width="2"/><circle cx="30" cy="30" r="15" fill="none" stroke="%2374b9ff" stroke-width="2"/><circle cx="70" cy="70" r="15" fill="none" stroke="%23ff7675" stroke-width="2"/></svg>') no-repeat center bottom;
+    background-size: 400px;
+    opacity: 0.04;
+    z-index: -1;
+}
+ 
+h1, h2, h3 {
+    font-family: 'Rubik', sans-serif;
+    letter-spacing: 1px;
+    color: #0984e3;
+    position: relative;
+    margin-top: 1.5em;
+}
+ 
+h1 {
+    font-size: 2.8em;
+    text-align: center;
+    margin-bottom: 1.2em;
+    color: #e17055;
+    position: relative;
+}
+ 
+h1::after {
+    content: "友情";  /* Kanji pour "amitié" */
+    position: absolute;
+    bottom: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.4em;
+    color: #0984e3;
+    background: #f5f7fa;
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+ 
+h1::before {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 25%;
+    right: 25%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #fdcb6e, transparent);
+}
+ 
+h2 {
+    font-size: 1.8em;
+    color: #00b894;
+    margin-top: 1.8em;
+    padding-left: 15px;
+    border-left: 4px solid #74b9ff;
+}
+ 
+h2::before {
+    content: "✦";
+    margin-right: 10px;
+    color: #ff7675;
+    font-size: 0.9em;
+}
+ 
+h3 {
+    font-size: 1.3em;
+    color: #6c5ce7;
+    margin-left: 20px;
+    font-weight: 600;
+}
+ 
+h3::before {
+    content: "♥";
+    margin-right: 10px;
+    color: #ff7675;
+}
+ 
+p {
+    text-align: justify;
+    margin-bottom: 1.5em;
+    text-indent: 25px;
+    font-size: 1.05em;
+    line-height: 1.7;
+    position: relative;
+    z-index: 2;
+}
+ 
+p::first-letter {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #0984e3;
+}
+ 
+/* Animation de brillance pour les paragraphes */
+p {
+    transition: transform 0.3s ease;
+}
+ 
+p:hover {
+    transform: translateY(-3px);
+}
+ 
+/* Mise en évidence des noms des personnages */
+.character-name {
+    display: inline-block;
+    font-weight: bold;
+    position: relative;
+    z-index: 1;
+    border-radius: 3px;
+    padding: 0 3px;
+}
+ 
+.character-name.gobu {
+    color: #e17055;
+    background: linear-gradient(to bottom, transparent 60%, rgba(253, 203, 110, 0.3) 40%);
+}
+ 
+.character-name.vebeta {
+    color: #0984e3;
+    background: linear-gradient(to bottom, transparent 60%, rgba(116, 185, 255, 0.3) 40%);
+}
+ 
+/* Animation d'amitié pour les chapitres */
+@keyframes friendshipPulse {
+    0% { box-shadow: 0 0 5px rgba(253, 203, 110, 0.2); }
+    50% { box-shadow: 0 0 15px rgba(116, 185, 255, 0.4); }
+    100% { box-shadow: 0 0 5px rgba(253, 203, 110, 0.2); }
+}
+ 
+h2 {
+    animation: friendshipPulse 4s infinite;
+    padding: 10px;
+    border-radius: 4px;
+}
+ 
+/* Effet de transition entre les sections */
+.container > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s forwards;
+}
+ 
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+ 
+.container > *:nth-child(1) { animation-delay: 0.1s; }
+.container > *:nth-child(2) { animation-delay: 0.2s; }
+.container > *:nth-child(3) { animation-delay: 0.3s; }
+.container > *:nth-child(4) { animation-delay: 0.4s; }
+.container > *:nth-child(5) { animation-delay: 0.5s; }
+.container > *:nth-child(6) { animation-delay: 0.6s; }
+.container > *:nth-child(7) { animation-delay: 0.7s; }
+.container > *:nth-child(8) { animation-delay: 0.8s; }
+.container > *:nth-child(9) { animation-delay: 0.9s; }
+.container > *:nth-child(10) { animation-delay: 1s; }
+ 
+/* Ajout d'un arc-en-ciel subtil à l'épilogue */
+h3:last-of-type {
+    position: relative;
+}
+ 
+h3:last-of-type::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #74b9ff, #a29bfe, #ffeaa7, #ff7675, #74b9ff);
+    background-size: 300% 100%;
+    animation: gradientBorder 8s ease infinite;
+}
+ 
+h3:last-of-type + p {
+    padding-bottom: 20px;
+    position: relative;
+}
+ 
+h3:last-of-type + p::after {
+    content: "友達と平和";  /* "Amis et paix" en japonais */
+    position: absolute;
+    bottom: -10px;
+    right: 0;
+    font-size: 0.8em;
+    font-style: italic;
+    color: #636e72;
+    opacity: 0.7;
+}
+ 
+/* Adaptation mobile */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 20px;
+    }
+   
+    h1 {
+        font-size: 2em;
+    }
+   
+    h2 {
+        font-size: 1.5em;
+    }
+   
+    h3 {
+        font-size: 1.2em;
+    }
+}
+ 
+/* Style pour l'emoji de paix à la fin du dernier paragraphe */
+p:last-of-type::after {
+    content: " ☮";
+    color: #00b894;
+    font-size: 1.2em;
+}
+ 
+ 

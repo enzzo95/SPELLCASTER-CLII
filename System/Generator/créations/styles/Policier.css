@@ -1,0 +1,440 @@
+:root {
+  --noir-profond: #0a0a0a;
+  --noir-fumé: #141414;
+  --gris-acier: #333333;
+  --blanc-brumeux: rgba(255, 255, 255, 0.8);
+  --blanc-fantôme: rgba(255, 255, 255, 0.1);
+  --accent-sang: #8b0000;
+  --accent-indice: #d4af37;
+  --ombre-texte: 0 0 5px rgba(0, 0, 0, 0.5);
+  --police-titre: 'Georgia', serif;
+  --police-texte: 'Courier New', monospace;
+}
+
+/* BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--noir-profond);
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23141414"/><path d="M0 10L100 10M0 30L100 30M0 50L100 50M0 70L100 70M0 90L100 90" stroke="%23222222" stroke-width="0.5"/><path d="M10 0L10 100M30 0L30 100M50 0L50 100M70 0L70 100M90 0L90 100" stroke="%23222222" stroke-width="0.5"/></svg>');
+  color: var(--blanc-brumeux);
+  font-family: var(--police-texte);
+  line-height: 1.6;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* EFFET DE PLUIE */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.4));
+  animation: rain 10s linear infinite;
+  pointer-events: none;
+  opacity: 0.4;
+  z-index: 1;
+}
+
+@keyframes rain {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 20% 100%;
+  }
+}
+
+/* CONTAINER PRINCIPAL */
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 40px;
+  background-color: var(--noir-fumé);
+  border: 1px solid var(--gris-acier);
+  box-shadow: 
+    0 0 20px rgba(0, 0, 0, 0.8),
+    0 0 40px rgba(139, 0, 0, 0.1),
+    inset 0 0 10px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
+  animation: fadeIn 1.5s ease-out;
+}
+
+/* EFFET DE VIEILLE PHOTO */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 0, 0, 0.05) 2px,
+      rgba(0, 0, 0, 0.05) 4px
+    );
+  pointer-events: none;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+/* EFFET D'APPARITION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* TITRE PRINCIPAL */
+h1 {
+  font-family: var(--police-titre);
+  font-size: 42px;
+  color: var(--blanc-brumeux);
+  text-align: center;
+  margin-bottom: 30px;
+  text-shadow: var(--ombre-texte);
+  letter-spacing: 2px;
+  position: relative;
+  padding-bottom: 15px;
+  animation: typewriter 2s steps(30, end);
+}
+
+/* EFFET MACHINE À ÉCRIRE */
+@keyframes typewriter {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+h1::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--accent-sang), transparent);
+}
+
+/* SOUS-TITRES */
+h2 {
+  font-family: var(--police-titre);
+  font-size: 28px;
+  color: var(--blanc-brumeux);
+  margin: 30px 0 20px;
+  padding-left: 15px;
+  border-left: 4px solid var(--accent-sang);
+  text-shadow: var(--ombre-texte);
+  animation: revealEvidence 1s ease-out;
+}
+
+@keyframes revealEvidence {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* SOUS-TITRE NIVEAU 3 */
+h3 {
+  font-family: var(--police-titre);
+  font-size: 22px;
+  color: var(--accent-indice);
+  margin: 25px 0 15px;
+  font-style: italic;
+  text-shadow: var(--ombre-texte);
+}
+
+/* PARAGRAPHES */
+p {
+  font-size: 17px;
+  margin-bottom: 20px;
+  text-align: justify;
+  position: relative;
+  padding: 10px 15px;
+  background-color: var(--noir-fumé);
+  border-radius: 2px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  animation: fadeInText 1.5s ease-out;
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* PREMIER PARAGRAPHE - MISE EN ÉVIDENCE */
+h2 + p {
+  border-left: 2px solid var(--accent-indice);
+}
+
+/* EFFET AU SURVOL DES PARAGRAPHES */
+p:hover {
+  background-color: rgba(30, 30, 30, 0.8);
+  transform: translateX(5px);
+  transition: all 0.3s ease;
+}
+
+/* EFFET LOUPE - PREMIERS MOTS */
+p::first-letter {
+  font-size: 200%;
+  color: var(--accent-sang);
+  font-weight: bold;
+  font-family: var(--police-titre);
+  float: left;
+  margin-right: 6px;
+  line-height: 0.8;
+}
+
+/* EFFET DE NÉON SUR CERTAINS ÉLÉMENTS */
+h2:hover, h3:hover {
+  text-shadow: 
+    0 0 5px var(--blanc-brumeux),
+    0 0 10px var(--blanc-brumeux),
+    0 0 15px var(--blanc-fantôme),
+    0 0 20px var(--accent-sang);
+  transition: all 0.3s ease;
+}
+
+/* EFFET D'INDICE IMPORTANT */
+.container:hover::after {
+  content: "";
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--accent-sang);
+  box-shadow: 0 0 10px var(--accent-sang), 0 0 20px var(--accent-sang);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* BARRE DE DÉFILEMENT PERSONNALISÉE */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--noir-fumé);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--gris-acier);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-sang);
+}
+
+/* SÉLECTION DE TEXTE */
+::selection {
+  background-color: var(--accent-sang);
+  color: var(--blanc-brumeux);
+}
+
+/* EFFET HORLOGE - ANIMATION CONTINUE */
+h1::before {
+  content: "🕰️";
+  opacity: 0.8;
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 32px;
+  animation: clockTick 2s infinite;
+}
+
+@keyframes clockTick {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-50%) rotate(5deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-50%) rotate(-5deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+/* EFFET BROUILLARD AU BAS DE LA PAGE */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(to top, var(--noir-profond), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* EFFET LUMIÈRE TAMISÉE */
+.container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at top left,
+    rgba(255, 255, 255, 0.1),
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+/* EFFET ÉCLAIRAGE DRAMATIQUE */
+p:nth-child(odd) {
+  background: linear-gradient(to right, var(--noir-fumé), rgba(35, 35, 35, 0.8));
+}
+
+/* EFFET ÉCRITURE RÉCENTE - DERNIER PARAGRAPHE */
+p:last-of-type {
+  border-bottom: 1px dashed var(--accent-indice);
+  animation: newEvidence 3s infinite alternate;
+}
+
+@keyframes newEvidence {
+  from {
+    border-color: var(--accent-indice);
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+  .container {
+    padding: 20px;
+    margin: 20px;
+  }
+  
+  h1 {
+    font-size: 32px;
+  }
+  
+  h2 {
+    font-size: 24px;
+  }
+  
+  h3 {
+    font-size: 20px;
+  }
+  
+  p {
+    font-size: 16px;
+    padding: 8px 10px;
+  }
+}
+
+/* ANIMATION ADDITIONNELLE - EFFET ENQUÊTE */
+.container:hover p {
+  transition: all 0.5s ease;
+}
+
+.container:hover p:hover {
+  background-color: rgba(40, 40, 40, 0.9);
+  box-shadow: 
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(139, 0, 0, 0.2);
+}
+
+/* EFFET DÉCOUVERTE - ANIMATION AU SURVOL */
+h2:hover + p::before {
+  content: "🔍";
+  position: absolute;
+  left: -25px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 20px;
+  animation: magnify 1s infinite alternate;
+}
+
+@keyframes magnify {
+  from {
+    transform: translateY(-50%) scale(1) rotate(-10deg);
+  }
+  to {
+    transform: translateY(-50%) scale(1.2) rotate(10deg);
+  }
+}
+
+/* EFFET CLIGNOTEMENT ANCIEN TÉLÉSCRIPTEUR */
+h1:hover::first-letter {
+  animation: blink 0.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* EFFET VIEUX PAPIER */
+.container {
+  background-image: 
+    linear-gradient(to right, rgba(10, 10, 10, 0.9), rgba(20, 20, 20, 0.9)),
+    url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23141414"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23222222" stroke-width="0.5" stroke-opacity="0.1"/></svg>');
+}
