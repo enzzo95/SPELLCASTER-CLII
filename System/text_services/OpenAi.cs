@@ -7,6 +7,7 @@ public class OpenAi
 {
     private readonly HttpClient client;
     private readonly string apiKey;
+    private const string url = "https://api.openai.com/v1/chat/completions";
 
     public OpenAi()
     {
@@ -16,13 +17,14 @@ public class OpenAi
         if (string.IsNullOrEmpty(apiKey))
         {
             Console.WriteLine("Erreur : clé API manquante.");
+            throw new ArgumentNullException("La clé API OpenAI est requise.");
         }
 
         client = new HttpClient();
         client.DefaultRequestHeaders.Add("Authorization", $"Bearer {apiKey}");
     }
 
-    public async Task<string> PromptAsync(string prompt)
+    public async Task<string> SendRequest(string prompt)
     {
         var requestBody = new
         {
@@ -34,18 +36,14 @@ public class OpenAi
 
         string json = JsonSerializer.Serialize(requestBody);
 
-        using var content = new StringContent(json, Encoding.UTF8, "application/json");
-        HttpResponseMessage response = await client.PostAsync("https://api.openai.com/v1/chat/completions", content);
+        var content = new StringContent(json, Encoding.UTF8, "application/json");
+        HttpResponseMessage response = await client.PostAsync(url, content);
 
         if (response.IsSuccessStatusCode)
         {
             string responseBody = await response.Content.ReadAsStringAsync();
             using JsonDocument doc = JsonDocument.Parse(responseBody);
-            var messageContent = doc.RootElement
-                .GetProperty("choices")[0]
-                .GetProperty("message")
-                .GetProperty("content")
-                .GetString();
+            var messageContent = doc.RootElement.GetProperty("choices")[0].GetProperty("message").GetProperty("content").GetString();
 
             return messageContent;
         }

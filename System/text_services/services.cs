@@ -13,7 +13,7 @@ public class Services
                         $"Si tu ne reconnais pas le sens du texte, écris 'Erreur: texte non reconnu'. " +
                         $"Si l'orthographe est bonne, réécris le : {text}";
         
-        return await openAi.PromptAsync(prompt);
+        return await openAi.SendRequest(prompt);
     }
 
     public async Task<string> Translate(string text)
@@ -35,7 +35,8 @@ public class Services
                     break;  
         }
 
-        string prompt = $"\nTraduis ce texte français en anglais {english}, donne uniquement la traduction : {text}";
-        return await openAi.PromptAsync(prompt);
+        string prompt = $"\nTraduis ce texte français en anglais {english}, si le texte n'est pas en francais ecrit seulement 'Erreur: le texte n'est pas en francais' donne uniquement la traduction : {text}";
+        
+        return await openAi.SendRequest(prompt);
     }
 }
