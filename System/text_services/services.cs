@@ -12,6 +12,8 @@ public class Services
         string prompt = $"Corrige le texte, donne uniquement le texte corrigé, rien d'autre. " +
                         $"Si tu ne reconnais pas le sens du texte, écris 'Erreur: texte non reconnu'. " +
                         $"Si l'orthographe est bonne, réécris le : {text}";
+
+        Console.Clear();
         
         return await openAi.SendRequest(prompt);
     }
@@ -40,5 +42,29 @@ public class Services
         string prompt = $"Traduis ce texte français en anglais {english}, si le texte n'est pas en francais ecrit seulement 'Erreur: le texte n'est pas en francais' donne uniquement la traduction : {text}";
         
         return await openAi.SendRequest(prompt);
+    }
+
+    public bool continueProgram()
+    {
+        Console.WriteLine("\nVoulez-vous continuer ? (y/n)");
+
+        while(true)
+        {
+            string choice = Console.ReadLine();
+
+            if (choice.ToLower() == "y")
+            {
+                return true;
+            }
+            else if (choice.ToLower() == "n")
+            {
+                Console.WriteLine("Arret du programme.");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Choix invalide, réessayez (y/n)");
+            }
+        }
     }
 }

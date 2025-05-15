@@ -22,7 +22,8 @@
                     string correctionText = Console.ReadLine();
                     string correctedText = await services.Correct(correctionText);
                     Console.WriteLine(correctedText);
-                    break;
+
+                    if (services.continueProgram()) break; else return;
                     
                 case "2":
                     Console.Clear();
@@ -30,12 +31,14 @@
                     string textToTranslate = Console.ReadLine();
                     string translatedText = await services.Translate(textToTranslate);
                     Console.WriteLine(translatedText);
-                    break;
+
+                    if (services.continueProgram()) break; else return;
 
                 case "3":
                     Console.Clear();
                     html.HTMLGenerator("");
-                    break;
+
+                    if (services.continueProgram()) break; else return;
 
                 case "4":
                     return;
