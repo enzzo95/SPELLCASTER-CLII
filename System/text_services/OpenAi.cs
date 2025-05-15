@@ -45,7 +45,7 @@ public class OpenAi
             using JsonDocument doc = JsonDocument.Parse(responseBody);
             var messageContent = doc.RootElement.GetProperty("choices")[0].GetProperty("message").GetProperty("content").GetString();
 
-            return messageContent;
+            return $"\n{messageContent}";
         }
 
         else

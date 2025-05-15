@@ -39,4 +39,28 @@ public class Services
         
         return await openAi.SendRequest(prompt);
     }
+
+    public bool continueProgram()
+    {
+        Console.WriteLine("\nVoulez-vous continuer ? (y/n)");
+
+        while(true)
+        {
+            string choice = Console.ReadLine();
+
+            if (choice.ToLower() == "y")
+            {
+                return true;
+            }
+            else if (choice.ToLower() == "n")
+            {
+                Console.WriteLine("Arret du programme.");
+                return false;
+            }
+            else
+            {
+                Console.WriteLine("Choix invalide, réessayez (y/n)");
+            }
+        }
+    }
 }
