@@ -7,15 +7,17 @@
 
         while (true)
         {
-            Console.WriteLine("\nBienvenue dans Spellcaster CLI !\nQue souhaitez-vous faire ?\n");
-            Console.WriteLine("1. Corriger un texte en français\n2. Traduire un texte en français vers anglais");
-            Console.WriteLine("3. Générer un fichier HTML\n4. Quitter");
+            Console.Clear();
+            Console.WriteLine("\nThou hast entered the Spellcaster's CLI!\nWhat dost thou intend? ?\n");
+            Console.WriteLine("1. Rectifier un propos en la noble langue de France.\n2. Transposer un écrit de la noble langue françoise en celle de l'illustre royaume d'Angleterre.");
+            Console.WriteLine("3. Féconder l'émergence d'un grimoire HTML\n4. Quitter");
 
             string userChoice = Console.ReadLine();
 
             switch (userChoice)
             {
                 case "1":
+                    Console.Clear();
                     Console.WriteLine("\nEntrez le texte à corriger :");
                     string correctionText = Console.ReadLine();
                     string correctedText = await services.Correct(correctionText);
@@ -23,6 +25,7 @@
                     break;
                     
                 case "2":
+                    Console.Clear();
                     Console.WriteLine("\nEntrez le texte à traduire :");
                     string textToTranslate = Console.ReadLine();
                     string translatedText = await services.Translate(textToTranslate);
@@ -30,7 +33,8 @@
                     break;
 
                 case "3":
-                    html.HTMLGenerator("ENZIZIZIZITO");
+                    Console.Clear();
+                    html.HTMLGenerator("");
                     break;
 
                 case "4":

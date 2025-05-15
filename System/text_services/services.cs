@@ -25,17 +25,19 @@ public class Services
         switch (choice)
         {
                 case "1":
-                    english = "US";
+                    english = "US(de facon familier)";
+                    Console.Clear();
                     break;
                 case "2":
-                    english = "UK";
+                    english = "UK(de facon archaic)";
+                    Console.Clear();
                     break;
                 default:
                     Console.WriteLine("\nChoix invalide, par défaut anglais US");
                     break;  
         }
 
-        string prompt = $"\nTraduis ce texte français en anglais {english}, si le texte n'est pas en francais ecrit seulement 'Erreur: le texte n'est pas en francais' donne uniquement la traduction : {text}";
+        string prompt = $"Traduis ce texte français en anglais {english}, si le texte n'est pas en francais ecrit seulement 'Erreur: le texte n'est pas en francais' donne uniquement la traduction : {text}";
         
         return await openAi.SendRequest(prompt);
     }
