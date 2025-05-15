@@ -1,29 +1,28 @@
 using System;
 
-class HTML {
-    public void HTMLGenerator(string genre, string fileName, string htmlContent)
-    {
-    public void HTMLGenerator(string FileTag, string htmlcontent) {
-        string html =$@"
+class HTML
+{
+    public void HTMLGenerator(string genre, string FileTag, string htmlcontent) {
+        string html = $@"
             <!DOCTYPE html>
             <html lang='fr'>
             <head>
                 <meta charset='UTF-8'>
                 <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                <title>{fileName}</title>
+                <title>{FileTag}</title>
                 <link rel='stylesheet' href='styles/{genre}.css'>
             </head>
             <body>
                 <div class='container'>
             ";
 
-            html += htmlContent;
+        html += htmlcontent;
 
-            html += @"
+        html += @"
                 </div>
             </body>
             </html>
             ";
-            File.WriteAllText($"System/Generator/créations/{fileName}.html", html);
+        File.WriteAllText($"System/Generator/créations/{FileTag}.html", html);
     }
 }

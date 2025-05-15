@@ -39,10 +39,6 @@
                     List<string> result = await services.Story();
                     html.HTMLGenerator(result[0], result[1], result[2]);
                     
-                    string Story = await services.Story();
-                    Console.WriteLine("Comment souhaitez-vous nommer le HTML ? (sans .html)");
-                    string FileTag = Console.ReadLine();
-                    html.HTMLGenerator(FileTag, Story);
                     if (services.continueProgram()) break; else return;
 
                 case "4":
