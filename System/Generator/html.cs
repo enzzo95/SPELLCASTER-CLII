@@ -3,6 +3,7 @@ using System;
 class HTML {
     public void HTMLGenerator(string genre, string fileName, string htmlContent)
     {
+    public void HTMLGenerator(string FileTag, string htmlcontent) {
         string html =$@"
             <!DOCTYPE html>
             <html lang='fr'>
