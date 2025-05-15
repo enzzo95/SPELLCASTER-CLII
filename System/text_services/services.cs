@@ -44,6 +44,45 @@ public class Services
         return await openAi.SendRequest(prompt);
     }
 
+    public async Task<List<string>> Story()
+    {
+        Console.WriteLine("Quel est le prénom du premier personnage ?");
+        string character1 = Console.ReadLine();
+        Console.WriteLine("\nQuel est le prénom du second personnage ?");
+        string character2 = Console.ReadLine();
+
+        Console.WriteLine("\nQuel est le genre de l'histoire ? (1-10)");
+
+        Dictionary<int, string> genres = new Dictionary<int, string>
+        {
+            {1, "fantasy"},
+            {2, "horreur"},
+            {3, "science-fiction"},
+            {4, "aventure"},
+            {5, "historique"},
+            {6, "mystique"},
+            {7, "romantique"},
+            {8, "policier"},
+            {9, "thriller"},
+            {10, "comédie"}
+        };
+
+        foreach (var genr in genres)
+        {
+            Console.WriteLine($"{genr.Key}. {genr.Value}");
+        }
+        
+        int genreChoice = int.Parse(Console.ReadLine());
+
+        string prompt = $"Tu es un écrivain d'exception, chargé de créer une histoire courte de facon archaique dans le genre {genres[genreChoice]}. Le récit doit rayonner d'humanité et de spontanéité, avec une narration d'une richesse littéraire inégalée, où chaque mot devient une note de musique      dans une symphonie d'émotions. L'histoire, fluide et intense, doit mêler habilement phrases courtes et longues, un ton poétique et familier,     capturant l'essence même des personnages, {character1} et {character2}, complexes et profonds. Ces derniers évolueront dans un univers aussi       étrange que familier, où l'inconnu devient un terrain fertile pour la réflexion et l'émotion. Le texte doit inviter à la contemplation, à     l'introspection, et offrir au lecteur une expérience aussi bouleversante qu'éblouissante. Ecrit moi l'histoire en html, seulement         l'interieur du body(n'instaure pas <body> </body>)(je souhaite avoir tout cela en version text), utilise bien h1, h2, h3, etc.. donne moi le code et rien         d'autre";
+
+        Console.WriteLine("Comment souhaitez-vous nommer le HTML ? (sans .html)");
+        string fileName = Console.ReadLine();
+            
+        return new List<string> {genres[genreChoice], fileName, await openAi.SendRequest(prompt)};
+    }
+
+
     public bool continueProgram()
     {
         Console.WriteLine("\nVoulez-vous continuer ? (y/n)");

@@ -30,8 +30,8 @@ public class OpenAi
         {
             model = "gpt-4o",
             messages = new[] { new { role = "user", content = prompt } },
-            max_tokens = 100,
-            temperature = 0.7
+            max_tokens = 1000,
+            temperature = 0.8
         };
 
         string json = JsonSerializer.Serialize(requestBody);
