@@ -36,8 +36,10 @@
 
                 case "3":
                     Console.Clear();
-                    html.HTMLGenerator("");
-
+                    string Story = await services.Story();
+                    Console.WriteLine("Comment souhaitez-vous nommer le HTML ? (sans .html)");
+                    string FileTag = Console.ReadLine();
+                    html.HTMLGenerator(FileTag, Story);
                     if (services.continueProgram()) break; else return;
 
                 case "4":

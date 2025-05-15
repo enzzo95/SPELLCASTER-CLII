@@ -30,7 +30,7 @@ public class OpenAi
         {
             model = "gpt-4o",
             messages = new[] { new { role = "user", content = prompt } },
-            max_tokens = 100,
+            max_tokens = 1500,
             temperature = 0.7
         };
 

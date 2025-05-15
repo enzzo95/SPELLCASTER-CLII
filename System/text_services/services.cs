@@ -44,6 +44,39 @@ public class Services
         return await openAi.SendRequest(prompt);
     }
 
+    public async Task<string> Story() {
+   
+    Dictionary<int, string> Genres = new Dictionary<int, string> {
+        {1,"Shonen"},
+        {2,"Romantique"},
+        {3,"Fantasy"},
+        {4,"Épopées"},
+        {5,"Isekai"},
+        {6,"Fable"},
+        {7,"Drame"},
+        {8,"Mystique"},
+        {9,"Réalisme magique"},
+        {10,"Psychologique"}
+    };
+    Console.WriteLine("Que sera le Prenom du 1er personnage ? : ");
+    string Prenom1 = Console.ReadLine();
+
+    Console.WriteLine("Que sera le Prénom du 2ème personnage ? :");
+    string Prenom2 = Console.ReadLine();
+
+    Console.WriteLine("Que sera le genre du texte literraire ? : ");
+
+    foreach (var genr in Genres) {
+        Console.WriteLine($"{genr.Key}.{genr.Value}");
+    }
+
+    int Choice = int.Parse(Console.ReadLine());
+
+    string prompt = $"Tu es un écrivain d'exception, chargé de créer une histoire courte de facon archaique dans le genre {Genres}. Le récit doit rayonner d'humanité et de spontanéité, avec une narration d'une richesse littéraire inégalée, où chaque mot devient une note de musique dans une symphonie d'émotions. L'histoire, fluide et intense, doit mêler habilement phrases courtes et longues, un ton poétique et familier, capturant l'essence même des personnages, {Prenom1} et {Prenom2}, complexes et profonds. Ces derniers évolueront dans un univers aussi étrange que familier, où l'inconnu devient un terrain fertile pour la réflexion et l'émotion. Le texte doit inviter à la contemplation, à l'introspection, et offrir au lecteur une expérience aussi bouleversante qu'éblouissante. Ecrit moi l'histoire en html, seulement l'interieur du body(n'instaure pas <body> </body>), utilise bien h1, h2, h3, etc.. donne moi le code et rien d'autre";
+
+    return await openAi.SendRequest(prompt);
+}
+
     public bool continueProgram()
     {
         Console.WriteLine("\nVoulez-vous continuer ? (y/n)");
@@ -68,3 +101,4 @@ public class Services
         }
     }
 }
+
