@@ -28,7 +28,7 @@ public class OpenAi
     {
         var requestBody = new
         {
-            model = "gpt-4o",
+            model = "gpt-4o-mini",
             messages = new[] { new { role = "user", content = prompt } },
             max_tokens = 1500,
             temperature = 0.7
